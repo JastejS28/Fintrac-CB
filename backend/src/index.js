@@ -5,7 +5,7 @@ import cors from 'cors'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import mongoose from 'mongoose'
-const app= express();   // Create an Express application
+const app= express();  
 import userRoutes from './routes/user.routes.js'
 import transactionRoutes from './routes/transaction.routes.js'
 import budgetRoutes from './routes/budget.routes.js'

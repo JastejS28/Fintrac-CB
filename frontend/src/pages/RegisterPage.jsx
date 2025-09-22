@@ -30,17 +30,52 @@ try{
 }
 
   return (
-    <div>
-      <h2>Register</h2>
-      <form>
-        <input type='text' placeholder='Username'
-        value= {username}  onChange={(e)=> setUsername(e.target.value)} />
-        <input type='email' placeholder='Email'
-        value= {email}  onChange={(e)=> setEmail(e.target.value)} />
-        <input type='password' placeholder='Password'
-        value= {password}  onChange={(e)=> setPassword(e.target.value)} />
-        <button onClick={handleRegister} type='submit'>Register</button>
-      </form>
+    <div className="auth-container">
+      <div className="auth-card">
+        <h1 className="auth-title">Join FinTrac</h1>
+        <p style={{ color: 'var(--text-secondary)', marginBottom: 'var(--spacing-lg)' }}>
+          Start your financial journey today
+        </p>
+        
+        {error && <div className="error-message">{error}</div>}
+        
+        <form onSubmit={handleRegister} className="auth-form">
+          <input 
+            type='text' 
+            placeholder='Full Name'
+            value={username} 
+            onChange={(e) => setUsername(e.target.value)} 
+            required
+            className="auth-input"
+          />
+          
+          <input 
+            type='email' 
+            placeholder='Email Address'
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)} 
+            required
+            className="auth-input"
+          />
+          
+          <input 
+            type='password' 
+            placeholder='Create Password'
+            value={password} 
+            onChange={(e) => setPassword(e.target.value)} 
+            required
+            className="auth-input"
+          />
+          
+          <button type='submit' className="auth-btn">
+            ✨ Create Account
+          </button>
+        </form>
+        
+        <div className="auth-link">
+          Already have an account? <a href="/login">Sign in here</a>
+        </div>
+      </div>
     </div>
   )
 }

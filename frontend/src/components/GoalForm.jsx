@@ -22,13 +22,34 @@ function GoalForm({ onGoalAdded }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h4>Create a New Goal</h4>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <input type="text" placeholder="Goal Name (e.g., New Phone)" value={name} onChange={(e) => setName(e.target.value)} required />
-      <input type="number" placeholder="Target Amount" value={targetAmount} onChange={(e) => setTargetAmount(e.target.value)} required />
-      <button type="submit">Add Goal</button>
-    </form>
+    <div className="goal-form">
+      <form onSubmit={handleSubmit}>
+        <h4>🎯 Create Savings Goal</h4>
+        {error && <div className="error-message">{error}</div>}
+        
+        <div className="form-row">
+          <input 
+            type="text" 
+            placeholder="Goal Name (e.g., New iPhone, Vacation)" 
+            value={name} 
+            onChange={(e) => setName(e.target.value)} 
+            required 
+          />
+          <input 
+            type="number" 
+            placeholder="Target Amount (₹)" 
+            value={targetAmount} 
+            onChange={(e) => setTargetAmount(e.target.value)} 
+            required 
+          />
+        </div>
+        
+        <button type="submit" className="btn btn-primary">
+          <span className="btn-icon">🎯</span>
+          Create Goal
+        </button>
+      </form>
+    </div>
   );
 }
 

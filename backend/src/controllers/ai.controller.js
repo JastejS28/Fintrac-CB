@@ -44,7 +44,7 @@ const prompt = `
     
 
   const response = await ollama.chat({
-    model: 'llama3', // Or any other model you have, like 'phi3'
+    model: 'llama3', 
     messages: [{ role: 'user', content: prompt }],
   });
 

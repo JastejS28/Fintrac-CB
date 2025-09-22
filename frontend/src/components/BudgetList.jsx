@@ -26,34 +26,46 @@ function BudgetList({ budgets, transactions }) {
 
   // If there are budgets, we render the list.
   return (
-    <div>
-      {/* We .map() over the 'budgets' array. For each 'budget' object, we create a block of JSX. */}
+    <div className="budget-list">
       {budgets.map(budget => {
-        // For each budget, we call our helper function to get the total amount spent in that category.
         const spent = calculateSpending(budget.category);
-        // We calculate the spending progress as a percentage.
         const progress = (spent / budget.limit) * 100;
+        const isOverBudget = progress > 100;
         
         return (
-          // The main container for a single budget's display.
-          <div key={budget._id} style={{ /*...*/ }}>
-            {/* This div displays the category name on the left and the 'spent / limit' on the right. */}
-            <div style={{ /*...*/ }}>
-              <span>{budget.category}</span>
-              <span>{formatCurrency(spent)} / {formatCurrency(budget.limit)}</span>
-            </div>
-            {/* This div is the gray background of the progress bar. */}
-            <div style={{ /*...*/ }}>
-              {/* This is the colored part of the progress bar. */}
-              <div style={{
-                // Its width is set to the calculated percentage. Math.min ensures it doesn't go over 100%.
-                width: `${Math.min(progress, 100)}%`,
-                height: '20px',
-                // The background color is red if the progress is over 100%, otherwise it's blue.
-                backgroundColor: progress > 100 ? '#DB4437' : '#4285F4',
-                // ...
-              }}>
+          <div key={budget._id} className="budget-item">
+            <div className="budget-header">
+              <div className="budget-category">
+                <span className="category-icon">🏷️</span>
+                <span className="category-name">{budget.category}</span>
               </div>
+              <div className="budget-amounts">
+                <span className={`spent-amount ${isOverBudget ? 'over-budget' : ''}`}>
+                  {formatCurrency(spent)}
+                </span>
+                <span className="budget-separator">/</span>
+                <span className="limit-amount">{formatCurrency(budget.limit)}</span>
+              </div>
+            </div>
+            
+            <div className="progress-container">
+              <div 
+                className={`progress-bar budget ${isOverBudget ? 'over-budget' : ''}`}
+                style={{ width: `${Math.min(progress, 100)}%` }}
+              >
+              </div>
+            </div>
+            
+            <div className="budget-status">
+              <span className={`status-text ${isOverBudget ? 'over-budget' : ''}`}>
+                {isOverBudget 
+                  ? `⚠️ Over budget by ${formatCurrency(spent - budget.limit)}` 
+                  : `✅ ${formatCurrency(budget.limit - spent)} remaining`
+                }
+              </span>
+              <span className="progress-percentage">
+                {Math.round(progress)}%
+              </span>
             </div>
           </div>
         );

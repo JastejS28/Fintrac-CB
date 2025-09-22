@@ -31,16 +31,43 @@ function LoginPage() {
     }
   }
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input  type='email' placeholder="Email" value={email} onChange={(e)=> setEmail(e.target.value)} required/>
-        <br/>
-        <input  type='password'  placeholder ='Password' value={password} onChange={(e)=>setPassword(e.target.value)} required/>
-        <br/>
-        <button type='submit'>Login</button>
-      </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+    <div className="auth-container">
+      <div className="auth-card">
+        <h1 className="auth-title">Welcome Back</h1>
+        <p style={{ color: 'var(--text-secondary)', marginBottom: 'var(--spacing-lg)' }}>
+          Sign in to your FinTrac account
+        </p>
+        
+        {error && <div className="error-message">{error}</div>}
+        
+        <form onSubmit={handleSubmit} className="auth-form">
+          <input 
+            type='email' 
+            placeholder="Email Address" 
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)} 
+            required
+            className="auth-input"
+          />
+          
+          <input 
+            type='password' 
+            placeholder='Password' 
+            value={password} 
+            onChange={(e) => setPassword(e.target.value)} 
+            required
+            className="auth-input"
+          />
+          
+          <button type='submit' className="auth-btn">
+            🚀 Sign In
+          </button>
+        </form>
+        
+        <div className="auth-link">
+          Don't have an account? <a href="/register">Create one here</a>
+        </div>
+      </div>
     </div>
   )
 }

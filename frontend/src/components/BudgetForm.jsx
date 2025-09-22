@@ -22,13 +22,34 @@ function BudgetForm({ onBudgetSet }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h4>Set a Budget</h4>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <input type="text" placeholder="Category (e.g., Food)" value={category} onChange={(e) => setCategory(e.target.value)} required />
-      <input type="number" placeholder="Limit" value={limit} onChange={(e) => setLimit(e.target.value)} required />
-      <button type="submit">Set Budget</button>
-    </form>
+    <div className="budget-form">
+      <form onSubmit={handleSubmit}>
+        <h4>📊 Set Budget Limit</h4>
+        {error && <div className="error-message">{error}</div>}
+        
+        <div className="form-row">
+          <input 
+            type="text" 
+            placeholder="Category (e.g., Food, Entertainment)" 
+            value={category} 
+            onChange={(e) => setCategory(e.target.value)} 
+            required 
+          />
+          <input 
+            type="number" 
+            placeholder="Monthly Limit (₹)" 
+            value={limit} 
+            onChange={(e) => setLimit(e.target.value)} 
+            required 
+          />
+        </div>
+        
+        <button type="submit" className="btn btn-primary">
+          <span className="btn-icon">💰</span>
+          Set Budget
+        </button>
+      </form>
+    </div>
   );
 }
 

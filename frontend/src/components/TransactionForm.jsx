@@ -34,19 +34,52 @@ try{
 
 
   return (
-    <div>
+    <div className="transaction-form">
       <form onSubmit={handleSubmit}>
-   <h3>Add new Transactions</h3>
-   {error && <p style={{ color: 'red' }}>{error}</p>}
-  <input  type='number'  value={amount} placeholder='Amount' onChange={(e)=>setAmount(e.target.value) } required />
-  <input type="text" placeholder="Category" value={category} onChange={(e) => setCategory(e.target.value)} required />
-  <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required />
-  <select value={type} onChange={(e)=>setType(e.target.value)} required>
-    <option value="income">Income</option>
-    <option value="expense">Expense</option>
-  </select>
-  <input  value={description} type='text' placeholder='Description' onChange={(e)=>setDescription(e.target.value)}  required />
-  <button type='submit'>Add Transaction</button>
+        {error && <div className="error-message">{error}</div>}
+        
+        <div className="form-row">
+          <input 
+            type='number' 
+            value={amount} 
+            placeholder='Amount (₹)' 
+            onChange={(e) => setAmount(e.target.value)} 
+            required 
+          />
+          <select value={type} onChange={(e) => setType(e.target.value)} required>
+            <option value="income">💰 Income</option>
+            <option value="expense">💸 Expense</option>
+          </select>
+        </div>
+
+        <div className="form-row">
+          <input 
+            type="text" 
+            placeholder="Category (e.g., Food, Salary)" 
+            value={category} 
+            onChange={(e) => setCategory(e.target.value)} 
+            required 
+          />
+          <input 
+            type="date" 
+            value={date} 
+            onChange={(e) => setDate(e.target.value)} 
+            required 
+          />
+        </div>
+
+        <input 
+          value={description} 
+          type='text' 
+          placeholder='Description' 
+          onChange={(e) => setDescription(e.target.value)} 
+          required 
+        />
+        
+        <button type='submit' className="btn btn-primary">
+          <span className="btn-icon">➕</span>
+          Add Transaction
+        </button>
       </form>
     </div>
   )

@@ -1,0 +1,73 @@
+/* frontend/src/pages/WelcomePage.css */
+
+.welcome-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #121212; /* Dark background */
+}
+
+.animation-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.content-overlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay to make text readable */
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+}
+
+.content-overlay h1 {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.button-group {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary {
+  background-color: #bb86fc;
+  color: #121212;
+}
+.btn-primary:hover {
+  background-color: #a362f7;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #bb86fc;
+  border: 2px solid #bb86fc;
+}
+.btn-secondary:hover {
+  background-color: #bb86fc;
+  color: #121212;
+}

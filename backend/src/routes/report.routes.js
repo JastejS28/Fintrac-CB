@@ -1,4 +1,3 @@
-// backend/src/routes/report.routes.js
 
 import express from 'express';
 import { exportTransactions, getCategoryBreakdown, getMonthlySummary } from '../controllers/report.controller.js';
