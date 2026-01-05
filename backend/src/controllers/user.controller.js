@@ -2,7 +2,7 @@ import User from '../models/user.model.js'
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import ErrorHandler from '../utils/ErrorHandler.js';
-import ErrorWrapper from '../utils/errorWrapper.js';
+import ErrorWrapper from '../utils/ErrorWrapper.js';
 
 export const registerUser= ErrorWrapper( async (req, res, next) =>{
     const {username, email, password}= req.body;
