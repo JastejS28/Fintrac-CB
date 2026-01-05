@@ -1,5 +1,5 @@
 import Budget from '../models/budget.model.js';
-import ErrorWrapper from '../utils/errorWrapper.js';
+import ErrorWrapper from '../utils/ErrorWrapper.js';
 import ErrorHandler from '../utils/ErrorHandler.js';
 export const setBudget = ErrorWrapper(async (req, res) => {
   const { category, limit } = req.body;

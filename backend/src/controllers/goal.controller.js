@@ -1,6 +1,6 @@
 import Goal from '../models/goal.model.js';
 import ErrorHandler from '../utils/ErrorHandler.js';
-import ErrorWrapper from '../utils/errorWrapper.js';
+import ErrorWrapper from '../utils/ErrorWrapper.js';
 
 export const createGoal= ErrorWrapper(async (req, res, next)=>{
     const {name, currentAmount,targetAmount, targetDate} = req.body;
