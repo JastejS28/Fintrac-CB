@@ -11,7 +11,6 @@ import transactionRoutes from './routes/transaction.routes.js'
 import budgetRoutes from './routes/budget.routes.js'
 import goalRoutes from './routes/goal.routes.js'
 import reportRoutes from './routes/report.routes.js'
-import aiRoutes from './routes/ai.routes.js'
 
 app.use(cors({
     origin:process.env.CORS_ORIGINS,
@@ -29,7 +28,6 @@ app.use('/api/v1/transaction', transactionRoutes)
 app.use('/api/v1/budgets', budgetRoutes)
 app.use('/api/v1/goal', goalRoutes)
 app.use('/api/v1/report', reportRoutes)
-app.use('/api/v1/ai', aiRoutes)
 
 mongoose.connect(`${process.env.DB_PATH}/${process.env.DB_NAME}`)
 .then(()=>{

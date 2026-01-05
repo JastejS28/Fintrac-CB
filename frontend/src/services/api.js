@@ -80,12 +80,6 @@ export const deleteGoal= (id, token)=>{
     })
 }
 
-export const getFinancialAssessment = (token) => {
-  // We use POST as defined in the backend route
-  return api.post('/ai/financial-assessment', {}, { // Send an empty object as the body
-    headers: { Authorization: `Bearer ${token}` },
-  });
-};
 
 export const exportTransactions = (token) => {
   return api.post('/report/export', {}, { // Send empty body

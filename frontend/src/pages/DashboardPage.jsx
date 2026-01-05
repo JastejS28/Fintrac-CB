@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getTransactions, getMonthlySummary, getCategoryBreakdown, getBudgets, getGoals, getFinancialAssessment, exportTransactions } from '../services/api';
+import { getTransactions, getMonthlySummary, getCategoryBreakdown, getBudgets, getGoals, exportTransactions } from '../services/api';
 import { logout } from '../store/authActions';
 import { useDispatch } from 'react-redux';
 import SpendingPieChart from '../components/SpendingPieChart';
@@ -107,10 +107,6 @@ function DashboardPage() {
           <button className="btn btn-secondary" onClick={handleExport}>
             <span className="btn-icon">📊</span>
             Export Data
-          </button>
-          <button className="btn btn-ai" onClick={handleGetAssessment} disabled={isAssessmentLoading}>
-            <span className="btn-icon">🤖</span>
-            {isAssessmentLoading ? 'Analyzing...' : 'AI Assessment'}
           </button>
           <button className="btn btn-logout" onClick={handleLogout}>
             <span className="btn-icon">🚪</span>
